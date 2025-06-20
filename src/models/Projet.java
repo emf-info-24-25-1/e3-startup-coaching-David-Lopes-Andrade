@@ -1,5 +1,7 @@
 package models;
 
+import utils.*;
+
 public class Projet {
     private final String nom;
     private final double budget;
@@ -18,6 +20,7 @@ public class Projet {
     }
 
     public double getBudget() {
+
         return budget;
     }
 
@@ -31,11 +34,19 @@ public class Projet {
 
     @Override
     public String toString() {
-        String affichage = "";
 
+        String affichage = "Projet " + nom + ", Budget : " + Util.formaterMontant(budget) + " CHF, Date de fin: "
+                + date_fin + ", Employes: ";
+
+        boolean premier = true;
         for (int i = 0; i < employes.length; i++) {
-            affichage = "Projet " + nom + ", Budget :" + budget + " CHF, Date de fin: " + date_fin + ", Employes:"
-                    + employes[i].getNom();
+            if (employes[i] != null) {
+                if (!premier) {
+                    affichage += ", ";
+                }
+                affichage += employes[i].getInitiales();
+                premier = false;
+            }
         }
         return affichage;
     }
@@ -45,7 +56,7 @@ public class Projet {
         if (employe != null) {
             for (int i = 0; i < employes.length; i++) {
                 if (employes[i] == null) {
-                    employe = employes[i];
+                    employes[i] = employe;
                     reussi = true;
                     break;
                 }

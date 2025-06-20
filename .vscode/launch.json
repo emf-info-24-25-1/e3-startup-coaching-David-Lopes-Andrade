@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Application",
+            "request": "launch",
+            "mainClass": "app.Application",
+            "projectName": "e3-startup-coaching-David-Lopes-Andrade_7179a17"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

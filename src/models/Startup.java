@@ -17,7 +17,7 @@ public class Startup {
             // creation tableau sans trou
             Employe[] sansTrou = new Employe[employes.length + 1];
             // copie des employes actuelle dans sans trou
-            for (int i = 0; i < sansTrou.length; i++) {
+            for (int i = 0; i < employes.length; i++) {
                 sansTrou[i] = employes[i];
             }
             // le nouvel employe dans le dernier index de sans trou
@@ -80,7 +80,7 @@ public class Startup {
             // mettre l'index necessaire a null
             for (int i = 0; i < projets.length; i++) {
                 if (projets[i] == projet) {
-                    employes = null;
+                    projets = null;
                 }
             }
             // remplir sans trou avec projet du tableau projet
@@ -141,13 +141,17 @@ public class Startup {
     @Override
     public String toString() {
         String affichage;
-        affichage = "Startup: " + nom + ", employes : ";
+        affichage = "Startup: " + nom + System.lineSeparator() + "Employes: ";
         for (int i = 0; i < employes.length; i++) {
-            affichage += employes[i];
+            if (employes != null) {
+                affichage += System.lineSeparator() + "- " + employes[i];
+            }
         }
-        affichage += "Proejets";
+        affichage += System.lineSeparator() + "Projets: ";
         for (int i = 0; i < projets.length; i++) {
-            affichage += projets[i];
+            if (projets != null) {
+                affichage += projets[i];
+            }
         }
         return affichage;
     }

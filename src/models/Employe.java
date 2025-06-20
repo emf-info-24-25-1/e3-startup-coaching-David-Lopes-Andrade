@@ -1,5 +1,7 @@
 package models;
 
+import utils.Util;
+
 public class Employe {
     private final String initiales;
     private final String nom;
@@ -37,8 +39,9 @@ public class Employe {
 
     @Override
     public String toString() {
-        return initiales.toUpperCase() + "/" + nom.toUpperCase() + prenom + "( " + poste + ")" + "[ " + salaire
-                + "CHF ]";
+        return initiales.toUpperCase() + " / " + nom.toUpperCase() + " " + prenom + " (" + poste + ") " + "["
+                + Util.formaterMontant(salaire)
+                + " CHF] ";
     }
 
 }
