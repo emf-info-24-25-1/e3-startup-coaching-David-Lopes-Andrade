@@ -1,5 +1,7 @@
 package models;
 
+import utils.Util;
+
 public class Startup {
     private final String nom;
     private Employe[] employes;
@@ -101,6 +103,7 @@ public class Startup {
         double total = 0.0;
         for (int i = 0; i < projets.length; i++) {
             total += projets[i].getBudget();
+            Util.formaterMontant(projets[i].getBudget());
         }
         return total;
     }
